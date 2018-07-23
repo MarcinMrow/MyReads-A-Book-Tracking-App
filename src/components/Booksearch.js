@@ -9,6 +9,8 @@ class BookSearch extends Component {
     const filterBooks = this.props.filterBooks;
     const searchBooks = this.props.searchBooks;
     const updateBooks = this.props.updateBooks;
+    const updateShelf = this.props.updateShelf;
+
 
     return (
       <div>
@@ -29,8 +31,9 @@ class BookSearch extends Component {
 
         <div className="search-books-results">
           <ol className="books-grid">
-            {filterBooks.map(book => (
-              <BookShelf key={book.id} book={book} updateBooks={updateBooks} />))}
+            { filterBooks.map(book => (
+              <BookShelf key={book.id} book={book} value={updateShelf} updateBooks={updateBooks} />
+              ))}
           </ol>
         </div>
 
@@ -40,3 +43,4 @@ class BookSearch extends Component {
 }
 
 export default BookSearch;
+//updateBooks={updateBooks}

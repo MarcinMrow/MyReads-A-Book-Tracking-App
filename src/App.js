@@ -9,7 +9,7 @@ class BooksApp extends Component {
   state = {
     Books: [],
     filterBooks: [],
-    search: "" // 
+    query: ''
   }
 
   // gets books from bookstore 
@@ -38,18 +38,36 @@ class BooksApp extends Component {
           this.setState({filterBooks: []})
         }
       })
+    } else {
+      this.setState({filterBooks: []})
     }
   }
 
-  // changes bookshelf
+ // changes bookshelf
   updateShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf)
+    BooksAPI.update(book, shelf) 
     .then((update) => {
-      this.fetchBooks()
+      this.fetchBooks();
+      this.updateSearch(this.state.filterBooks);
     })
   }
 
+  updateSearch = (values) => {
+    for (let value of values) {
+      for (let book of this.state.Books) {
+        if (value.id === book.id) {
+          value.shelf = book.shelf
+        } else if (value.id !== book.id) {
+            value.shelf === 'none'
+        }
+      }
+    }
+    this.setState({filterBooks: values});
+  }
+
+
   render() {
+
     return (
       <div className="app">
   
@@ -64,7 +82,9 @@ class BooksApp extends Component {
               <Booksearch
                 filterBooks={this.state.filterBooks}
                 searchBooks={(query) => this.searchBooks(query)}
-                updateBooks={(book, shelf) => this.updateShelf(book, shelf)} />
+                updateBooks={(book, shelf) => this.updateShelf(book, shelf)} 
+                // query = {this.state.query} 
+                />
             </div>
             )}
           />
@@ -75,3 +95,4 @@ class BooksApp extends Component {
 }
 
 export default BooksApp;
+

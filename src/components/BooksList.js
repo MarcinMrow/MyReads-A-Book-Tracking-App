@@ -11,6 +11,7 @@ class BooksList extends Component {
     const books = this.props.books;
     const updateBooks = this.props.updateBooks;
 
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -23,8 +24,10 @@ class BooksList extends Component {
             <h2 className="bookshelf-title">Currently Reading</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {books.filter((book) => book.shelf === "currentlyReading").map(book => (
-                  <BookShelf key={book.id} book={book} thumbnail={book.imageLinks.thumbnail} updateBooks={updateBooks} /> ))}
+                { books.filter((book) => book.shelf === "currentlyReading")
+                .map(book => (
+                  <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
+                  ))}
               </ol>
             </div>
           </div>
@@ -32,9 +35,11 @@ class BooksList extends Component {
           <div className="bookshelf">
             <h2 className="bookshelf-title">Want To Read</h2>
             <div className="bookshelf-books">
-              <ol className="books-grid">
-                {books.filter((book) => book.shelf === "wantToRead").map(book => (
-                  <BookShelf key={book.id} book={book} thumbnail={book.imageLinks.thumbnail} updateBooks={updateBooks} /> ))}
+              <ol className="books-grid">             
+                { books.filter((book) => book.shelf === "wantToRead")
+                .map(book => (
+                  <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
+                  ))}
               </ol>
             </div>
           </div>
@@ -43,8 +48,10 @@ class BooksList extends Component {
             <h2 className="bookshelf-title">Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {books.filter((book) => book.shelf === "read").map(book => (
-                  <BookShelf key={book.id} book={book} thumbnail={book.imageLinks.thumbnail} updateBooks={updateBooks} /> ))}
+                { books.filter((book) => book.shelf === "read")
+                .map(book => (
+                  <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
+                  ))}
               </ol>
             </div>
           </div>
