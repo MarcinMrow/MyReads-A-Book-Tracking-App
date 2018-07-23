@@ -9,7 +9,8 @@ class BooksApp extends Component {
   state = {
     Books: [],
     filterBooks: [],
-    query: ''
+    query: '',
+    value: ''
   }
 
   // gets books from bookstore 
@@ -32,6 +33,7 @@ class BooksApp extends Component {
     if (query) {
       BooksAPI.search(query)
       .then((result) => {
+        this.updateSearch(result) //
         if (result.error !== 'empty query') {
           this.setState({filterBooks: result})
         } else {
@@ -57,14 +59,11 @@ class BooksApp extends Component {
       for (let book of this.state.Books) {
         if (value.id === book.id) {
           value.shelf = book.shelf
-        } else if (value.id !== book.id) {
-            value.shelf === 'none'
-        }
+        } 
       }
     }
     this.setState({filterBooks: values});
   }
-
 
   render() {
 

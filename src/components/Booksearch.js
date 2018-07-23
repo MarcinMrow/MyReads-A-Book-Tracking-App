@@ -10,8 +10,7 @@ class BookSearch extends Component {
     const searchBooks = this.props.searchBooks;
     const updateBooks = this.props.updateBooks;
     const updateShelf = this.props.updateShelf;
-
-
+    
     return (
       <div>
 

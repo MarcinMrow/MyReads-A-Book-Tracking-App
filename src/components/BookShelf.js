@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // decides which status a book currently has (1.Currently Reading | 2.Want to Read | 3.Read | 4.None)
 class BookShelf extends Component {
-
+  
   render() {
     // define variables
     const book = this.props.book;
@@ -22,13 +22,15 @@ class BookShelf extends Component {
             )}
 
             <div className="book-shelf-changer">
-              <select value={shelfBook} 
-                onChange={(e) => updateBooks(book, e.target.value)}>  
+              <select 
+                value={shelfBook} 
+                onChange={(e) => updateBooks(book, e.target.value)}
+                >  
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
-                <option value="none">None</option>
+                <option value="none" selected>None</option>
               </select>
             </div>
           </div>

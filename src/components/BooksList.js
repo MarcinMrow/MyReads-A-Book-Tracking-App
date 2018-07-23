@@ -11,7 +11,6 @@ class BooksList extends Component {
     const books = this.props.books;
     const updateBooks = this.props.updateBooks;
 
-
     return (
       <div className="list-books">
         <div className="list-books-title">
