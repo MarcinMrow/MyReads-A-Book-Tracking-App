@@ -23,10 +23,11 @@ class BooksList extends Component {
             <h2 className="bookshelf-title">Currently Reading</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                { books.filter((book) => book.shelf === "currentlyReading")
-                .map(book => (
+                { 
+                  books.filter((book) => book.shelf === "currentlyReading").map(book => (
                   <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
-                  ))}
+                  ))
+                }
               </ol>
             </div>
           </div>

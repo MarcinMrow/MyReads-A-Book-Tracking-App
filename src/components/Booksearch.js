@@ -9,8 +9,8 @@ class BookSearch extends Component {
     const filterBooks = this.props.filterBooks;
     const searchBooks = this.props.searchBooks;
     const updateBooks = this.props.updateBooks;
-    const updateShelf = this.props.updateShelf;
-    
+    // const updateShelf = this.props.updateShelf;
+
     return (
       <div>
 
@@ -23,16 +23,19 @@ class BookSearch extends Component {
               className="search-books-results"
               type='text'
               placeholder='Search...'
-              onChange={(e) => searchBooks(e.target.value)} />     
+              onChange={(e) => searchBooks(e.target.value)}
+            />     
           </div>
           </Link>
         </div>
 
         <div className="search-books-results">
           <ol className="books-grid">
-            { filterBooks.map(book => (
-              <BookShelf key={book.id} book={book} value={updateShelf} updateBooks={updateBooks} />
-              ))}
+            { 
+              filterBooks.map(book => (
+              <BookShelf key={book.id} book={book} value={book.shelf} updateBooks={updateBooks} />
+              ))
+            }
           </ol>
         </div>
 
@@ -42,4 +45,3 @@ class BookSearch extends Component {
 }
 
 export default BookSearch;
-//updateBooks={updateBooks}

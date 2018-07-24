@@ -9,8 +9,8 @@ class BooksApp extends Component {
   state = {
     Books: [],
     filterBooks: [],
-    query: '',
-    value: ''
+    query: ''
+    // value: ''
   }
 
   // gets books from bookstore 
@@ -27,17 +27,34 @@ class BooksApp extends Component {
   componentDidMount() {
     this.fetchBooks(); 
   }
-
+/*
   // search results included in Search Terms
   searchBooks(query) {
     if (query) {
       BooksAPI.search(query)
       .then((result) => {
-        this.updateSearch(result) //
+        // this.updateSearch(result) //
         if (result.error !== 'empty query') {
           this.setState({filterBooks: result})
         } else {
           this.setState({filterBooks: []})
+        }
+      })
+    } else {
+      this.setState({filterBooks: []})
+    }
+  }
+*/
+  // search results included in Search Terms
+  searchBooks(query) {
+    if (query) {
+      BooksAPI.search(query)
+      .then((filterBooks) => {
+        this.updateSearch(filterBooks) //
+        if (filterBooks.error) {
+          this.setState({filterBooks: []})
+        } else {
+          this.setState({filterBooks: filterBooks})
         }
       })
     } else {
@@ -55,14 +72,15 @@ class BooksApp extends Component {
   }
 
   updateSearch = (values) => {
-    for (let value of values) {
+    for (let value of Array.from(values)) { // add Array.from() 
       for (let book of this.state.Books) {
         if (value.id === book.id) {
           value.shelf = book.shelf
-        } 
+        }
       }
     }
     this.setState({filterBooks: values});
+    console.log('book value');
   }
 
   render() {
