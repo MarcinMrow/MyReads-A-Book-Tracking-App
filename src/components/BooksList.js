@@ -36,10 +36,11 @@ class BooksList extends Component {
             <h2 className="bookshelf-title">Want To Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">             
-                { books.filter((book) => book.shelf === "wantToRead")
-                .map(book => (
+                { 
+                  books.filter((book) => book.shelf === "wantToRead").map(book => (
                   <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
-                  ))}
+                  ))
+                }
               </ol>
             </div>
           </div>
@@ -48,10 +49,11 @@ class BooksList extends Component {
             <h2 className="bookshelf-title">Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                { books.filter((book) => book.shelf === "read")
-                .map(book => (
+                { 
+                  books.filter((book) => book.shelf === "read").map(book => (
                   <BookShelf key={book.id} book={book} updateBooks={updateBooks} /> 
-                  ))}
+                  ))
+                }
               </ol>
             </div>
           </div>

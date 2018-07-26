@@ -62,7 +62,7 @@ class BooksApp extends Component {
     }
   }
 
- // changes bookshelf
+  // changes bookshelf
   updateShelf = (book, shelf) => {
     BooksAPI.update(book, shelf) 
     .then((update) => {
@@ -76,7 +76,7 @@ class BooksApp extends Component {
       for (let book of this.state.Books) {
         if (value.id === book.id) {
           value.shelf = book.shelf
-        }
+        } 
       }
     }
     this.setState({filterBooks: values});
@@ -89,8 +89,10 @@ class BooksApp extends Component {
       <div className="app">
   
           <Route exact path="/" render={() => (
-            <BooksList books={this.state.Books} 
-              updateBooks={(book, shelf) => this.updateShelf(book, shelf)} />
+            <BooksList 
+              books={this.state.Books} 
+              updateBooks={(book, shelf) => this.updateShelf(book, shelf)}
+            />
             )}
           />
 
@@ -112,4 +114,3 @@ class BooksApp extends Component {
 }
 
 export default BooksApp;
-
