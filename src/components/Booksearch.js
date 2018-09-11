@@ -21,9 +21,9 @@ class BookSearch extends Component {
       <div>
 
         <div className="search-books-bar">
-          <Link to='/' className="close-search">Close</Link>
+          <Link to='/MyReads-A-Book-Tracking-App/' className="close-search">Close</Link>
           
-          <Link to='/search'> 
+          <Link to='/MyReads-A-Book-Tracking-App/search'> 
           <div className="search-books-input-wrapper">
             <input
               className="search-books-results"
