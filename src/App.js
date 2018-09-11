@@ -88,7 +88,7 @@ class BooksApp extends Component {
     return (
       <div className="app">
   
-          <Route exact path="/" render={() => (
+          <Route exact path="/MyReads-A-Book-Tracking-App/" render={() => (
             <BooksList 
               books={this.state.Books} 
               updateBooks={(book, shelf) => this.updateShelf(book, shelf)}
@@ -96,7 +96,7 @@ class BooksApp extends Component {
             )}
           />
 
-          <Route path="/search" render={() => (
+          <Route path="/MyReads-A-Book-Tracking-App/search" render={() => (
             <div>
               <Booksearch
                 filterBooks={this.state.filterBooks}
