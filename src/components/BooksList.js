@@ -59,7 +59,7 @@ class BooksList extends Component {
           </div>
 
           <div className="open-search">
-            <Link to="/MyReads-A-Book-Tracking-App/search">Add a book</Link>
+            <Link to="/search">Add a book</Link>
           </div>
 
         </div>
