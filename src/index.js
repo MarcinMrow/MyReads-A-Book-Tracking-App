@@ -7,6 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 // add a <Router>
 ReactDOM.render(
-	<BrowserRouter><App /></BrowserRouter>, 
+	<BrowserRouter basename="/MyReads-A-Book-Tracking-App/"><App /></BrowserRouter>, 
 	document.getElementById('root')
 )
