@@ -1,5 +1,5 @@
 {
-  "homepage": "http://marcinmrow.github.io/MyReads-A-Book-Tracking-App/",
+  "homepage": "https://marcinmrow.github.io/MyReads-A-Book-Tracking-App/",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "escape-string-regexp": "^1.0.5",
